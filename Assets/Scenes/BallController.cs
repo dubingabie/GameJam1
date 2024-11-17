@@ -6,22 +6,17 @@ public class BallController : MonoBehaviour
 {
     private Rigidbody sphereRigidbody;
     
-    
     [Header("Movement Settings")]
-    public float moveSpeed = 300f;
+    public float moveSpeed = 10f;
     public float jumpForce = 300f;
     
     private bool isGrounded;
-
-    // Start is called before the first frame update
+    
     void Start()
     {
-        // Updated variable name here too
         sphereRigidbody = GetComponent<Rigidbody>();
     }
     
-     
-    // Update is called once per frame
     void Update()
     {
         isGrounded = Physics.Raycast(transform.position, Vector3.down, 1.1f);
@@ -41,5 +36,5 @@ public class BallController : MonoBehaviour
         // Move using Translate
         transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
     }
-    
 }
+
