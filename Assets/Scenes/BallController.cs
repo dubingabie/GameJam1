@@ -24,27 +24,22 @@ public class BallController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Ground check
         isGrounded = Physics.Raycast(transform.position, Vector3.down, 1.1f);
         
-        // Jump handling
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             sphereRigidbody.AddForce(Vector3.up * jumpForce);
         }
         
-        // Movement handling
+        // Get input
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
         
-        Vector3 movement = new Vector3(horizontalInput, sphereRigidbody.velocity.y, verticalInput);
+        // Create movement vector
+        Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput).normalized;
         
-        // Using velocity instead of AddForce for more responsive movement
-        sphereRigidbody.velocity = new Vector3(
-            movement.x * moveSpeed * Time.deltaTime, 
-            sphereRigidbody.velocity.y, // Keep current vertical velocity (for jumping/falling)
-            movement.z * moveSpeed * Time.deltaTime
-        );
+        // Move using Translate
+        transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
     }
     
 }

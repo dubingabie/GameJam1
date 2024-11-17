@@ -259,7 +259,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 2060942294}
   distance: 10
-  height: 5
+  height: 10
   smoothSpeed: 10
 --- !u!4 &240672446
 Transform:
@@ -609,8 +609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e00201a3b90cf8640b8f646347d7145f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveForce: 500
-  turnForce: 300
+  moveSpeed: 10
   jumpForce: 300
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
