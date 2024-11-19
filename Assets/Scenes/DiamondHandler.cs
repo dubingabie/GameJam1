@@ -16,7 +16,7 @@ public class DiamondHandler : MonoBehaviour
     void Start()
     {
         //make the cube stand on it's corner 
-        transform.rotation = Quaternion.Euler(90f, 90f, 90f);
+        transform.rotation = Quaternion.Euler(45f, 45f, 45f);
         
         //reset the object it's initial height
         transform.position = new Vector3(transform.position.x, initialHeight, transform.position.z);
