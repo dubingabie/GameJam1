@@ -29,14 +29,38 @@ public class BallController : MonoBehaviour
         }
         
         // Get input
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+        // float horizontalInput = Input.GetAxis("Horizontal");
+        // float verticalInput = Input.GetAxis("Vertical");
+        //
+        // // Create movement vector
+        // Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput).normalized;
+        //
+        // // Move using Translate
+        // //transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
+        // sphereRigidbody.AddForce(movement * ( moveSpeed * Time.deltaTime));
+        // Move left 
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            sphereRigidbody.AddForce(Vector3.left * moveSpeed);
+        }
         
-        // Create movement vector
-        Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput).normalized;
+        // Move right
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            sphereRigidbody.AddForce(Vector3.right * moveSpeed);
+        }
         
-        // Move using Translate
-        transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
+        // Move forward
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            sphereRigidbody.AddForce(Vector3.forward * moveSpeed);
+        }
+        
+        // Move backward
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            sphereRigidbody.AddForce(Vector3.back * moveSpeed);
+        }
     }
 }
 
