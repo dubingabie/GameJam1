@@ -38,9 +38,10 @@ public class DiamondHandler : MonoBehaviour
         
         if (other.CompareTag("Ball"))  // Make sure your ball has "Player" tag
         {
+            // invoke the add diamond function of score handler
+            ScoreManager.Instance.AddDiamond();
             // Destroy the diamond
             Destroy(gameObject);
-            ScoreManager.Instance.IncrementDiamonds();
 
         }
     }
