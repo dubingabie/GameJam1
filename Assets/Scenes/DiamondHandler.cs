@@ -40,6 +40,8 @@ public class DiamondHandler : MonoBehaviour
         {
             // Destroy the diamond
             Destroy(gameObject);
+            ScoreManager.Instance.IncrementDiamonds();
+
         }
     }
 }
