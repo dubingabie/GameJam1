@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform target;           // Reference to the ball's transform
+    [SerializeField] private Transform target;           // Reference to the ball's transform
     
     [Header("Camera Settings")]
-    public float distance = 10.0f;     // Distance behind ball
-    public float height = 5.0f;        // Height above ball
-    public float smoothSpeed = 10.0f;  // How smoothly camera follows
+    [SerializeField] private float distance = 10.0f;     // Distance behind ball
+    [SerializeField] private float height = 5.0f;        // Height above ball
+    [SerializeField] private float smoothSpeed = 10.0f;  // How smoothly camera follows
     
     private Vector3 offset;
     // Start is called before the first frame update

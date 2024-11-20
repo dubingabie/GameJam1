@@ -9,8 +9,8 @@ public class BallController : MonoBehaviour
     private Rigidbody sphereRigidbody;
     
     [Header("Movement Settings")]
-    public float moveSpeed = 10f;
-    public float jumpForce = 300f;
+    [SerializeField] private float moveSpeed = 10f;
+    [SerializeField] private float jumpForce = 300f;
     
     private bool isGrounded;
     

@@ -8,9 +8,9 @@ public class DiamondHandler : MonoBehaviour
     // make header to conrtoll the rotation script
     [Header("Diamond Settings")]
 
-    public float rotationSpeed = 30.0f;    //rotation speed control variable
+    [SerializeField] private float rotationSpeed = 30.0f;    //rotation speed control variable
     
-    public float initialHeight = 0.5f; //initial height of the diamond
+    [SerializeField] private  float initialHeight = 0.5f; //initial height of the diamond
     
     // Start is called before the first frame update
     void Start()
@@ -20,7 +20,8 @@ public class DiamondHandler : MonoBehaviour
         
         //reset the object it's initial height
         transform.position = new Vector3(transform.position.x, initialHeight, transform.position.z);
-       
+        //make this green - change this later maybe
+        GetComponent<Renderer>().material.color = Color.green;
 
     }
 
