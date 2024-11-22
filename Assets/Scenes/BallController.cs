@@ -11,7 +11,7 @@ public class BallController : MonoBehaviour
     [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float jumpForce = 300f;
-    [SerializeField] private float maxVelocity = 10f; // Add this line
+    [SerializeField] private float maxSpeed = 10f; // Add this line
 
     private bool isGrounded;
     
@@ -29,10 +29,13 @@ public class BallController : MonoBehaviour
             sphereRigidbody.AddForce(Vector3.up * jumpForce);
         }
         
+        // Store current vertical velocity
+        float yVelocity = sphereRigidbody.velocity.y;
+        
         // Move left 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            sphereRigidbody.AddForce(Vector3.left * moveSpeed );
+            sphereRigidbody.AddForce(Vector3.left * moveSpeed);
         }
         
         // Move right
@@ -44,7 +47,7 @@ public class BallController : MonoBehaviour
         // Move forward
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            sphereRigidbody.AddForce(Vector3.forward *  moveSpeed);
+            sphereRigidbody.AddForce(Vector3.forward * moveSpeed);
         }
         
         // Move backward
@@ -52,11 +55,14 @@ public class BallController : MonoBehaviour
         {
             sphereRigidbody.AddForce(Vector3.back * moveSpeed);
         }
-        
-        // Limit velocity
-        if (sphereRigidbody.velocity.magnitude > maxVelocity)
+
+        // Limit velocity but preserve vertical speed
+        if (sphereRigidbody.velocity.magnitude > maxSpeed)
         {
-            sphereRigidbody.velocity = sphereRigidbody.velocity.normalized * maxVelocity;
+            Vector3 newVelocity = sphereRigidbody.velocity.normalized * maxSpeed;
+            // Restore the original vertical velocity
+            newVelocity.y = yVelocity;
+            sphereRigidbody.velocity = newVelocity;
         }
     }
 }
