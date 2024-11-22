@@ -119,4 +119,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 30
-  initialHeight: 1.31
+  collectionSound: {fileID: 8300000, guid: 52320e590bf774734a288886eba557ba, type: 3}
+  volume: 1

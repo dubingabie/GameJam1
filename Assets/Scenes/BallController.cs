@@ -13,6 +13,7 @@ public class BallController : MonoBehaviour
     [SerializeField] private float maxSpeed = 10f; // Add this line
     [Header("Audio")]
     [SerializeField] private AudioClip jumpSound;
+    [SerializeField][Range(0.0f, 3.0f)] private float volume = 1.0f;
     private AudioSource audioSource;
     private bool isGrounded;
     
@@ -28,7 +29,7 @@ public class BallController : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            audioSource.PlayOneShot(jumpSound);
+            audioSource.PlayOneShot(jumpSound,volume);
             sphereRigidbody.AddForce(Vector3.up * jumpForce);
         }
         
