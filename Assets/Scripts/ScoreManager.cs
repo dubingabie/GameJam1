@@ -8,7 +8,6 @@ public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance { get; private set; }
     
-//    [SerializeField] private Text scoreText;
     [SerializeField] private TextMeshProUGUI scoreText;
 
     private int diamonds = 0;
