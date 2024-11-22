@@ -27,7 +27,7 @@ public class CameraFollow : MonoBehaviour
     
     void LateUpdate()
     {
-        if (target == null) return;
+        //if (target == null) return;
         
         // Calculate desired position
         Vector3 desiredPosition = target.position + offset;
