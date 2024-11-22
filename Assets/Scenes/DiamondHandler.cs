@@ -10,7 +10,7 @@ public class DiamondHandler : MonoBehaviour
 
     [SerializeField] private float rotationSpeed = 30.0f;    //rotation speed control variable
     
-    [SerializeField] private  float initialHeight = 0.5f; //initial height of the diamond
+    //[SerializeField] private  float initialHeight = 0.5f; //initial height of the diamond
     
     // Start is called before the first frame update
     void Start()

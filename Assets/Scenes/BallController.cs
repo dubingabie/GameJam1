@@ -4,19 +4,21 @@ using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
-    
 
+   
     private Rigidbody sphereRigidbody;
-    
     [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float jumpForce = 300f;
     [SerializeField] private float maxSpeed = 10f; // Add this line
-
+    [Header("Audio")]
+    [SerializeField] private AudioClip jumpSound;
+    private AudioSource audioSource;
     private bool isGrounded;
     
     void Start()
-    {
+    {   
+        audioSource = gameObject.AddComponent<AudioSource>();
         sphereRigidbody = GetComponent<Rigidbody>();
     }
     
@@ -26,6 +28,7 @@ public class BallController : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
+            audioSource.PlayOneShot(jumpSound);
             sphereRigidbody.AddForce(Vector3.up * jumpForce);
         }
         
