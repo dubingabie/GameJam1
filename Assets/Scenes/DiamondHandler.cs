@@ -19,9 +19,9 @@ public class DiamondHandler : MonoBehaviour
         transform.rotation = Quaternion.Euler(45f, 45f, 45f);
         
         //reset the object it's initial height
-        transform.position = new Vector3(transform.position.x, initialHeight, transform.position.z);
+        //transform.position = new Vector3(transform.position.x, initialHeight, transform.position.z);
         //make this green - change this later maybe
-        GetComponent<Renderer>().material.color = Color.green;
+        //GetComponent<Renderer>().material.color = Color.green;
 
     }
 
