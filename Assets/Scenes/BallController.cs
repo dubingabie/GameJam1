@@ -9,9 +9,10 @@ public class BallController : MonoBehaviour
     private Rigidbody sphereRigidbody;
     
     [Header("Movement Settings")]
-    [SerializeField] private float moveSpeed = 10f;
+    [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float jumpForce = 300f;
-    
+    [SerializeField] private float maxVelocity = 10f; // Add this line
+
     private bool isGrounded;
     
     void Start()
@@ -28,20 +29,10 @@ public class BallController : MonoBehaviour
             sphereRigidbody.AddForce(Vector3.up * jumpForce);
         }
         
-        // Get input
-        // float horizontalInput = Input.GetAxis("Horizontal");
-        // float verticalInput = Input.GetAxis("Vertical");
-        //
-        // // Create movement vector
-        // Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput).normalized;
-        //
-        // // Move using Translate
-        // //transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
-        // sphereRigidbody.AddForce(movement * ( moveSpeed * Time.deltaTime));
         // Move left 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            sphereRigidbody.AddForce(Vector3.left * moveSpeed);
+            sphereRigidbody.AddForce(Vector3.left * moveSpeed );
         }
         
         // Move right
@@ -53,13 +44,19 @@ public class BallController : MonoBehaviour
         // Move forward
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            sphereRigidbody.AddForce(Vector3.forward * moveSpeed);
+            sphereRigidbody.AddForce(Vector3.forward *  moveSpeed);
         }
         
         // Move backward
         if (Input.GetKey(KeyCode.DownArrow))
         {
             sphereRigidbody.AddForce(Vector3.back * moveSpeed);
+        }
+        
+        // Limit velocity
+        if (sphereRigidbody.velocity.magnitude > maxVelocity)
+        {
+            sphereRigidbody.velocity = sphereRigidbody.velocity.normalized * maxVelocity;
         }
     }
 }
